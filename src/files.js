@@ -6,7 +6,7 @@ const PUBLIC_DIR_NAME = 'public';
 const copyAssets = () => {
   console.log('Step 3. Copying assets...');
 
-  ['gulpfile.js', 'tsconfig.json', 'tslint.json'].map((file) => {
+  ['.gitignore', 'gulpfile.js', 'tsconfig.json', 'tslint.json'].map((file) => {
     fs.copyFileSync(`${__dirname}/../assets/${file}`, file, console.error);
   });
 

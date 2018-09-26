@@ -50,7 +50,7 @@ const addDependencies = () => {
       if (gulpVersion) {
         const parsed = gulpVersion.match(/(\d+).?(\d?).?(\d?)/);
 
-        if (parsed && parsed[1] < 4) {
+        if (parsed && parsed[1] && parseInt(parsed[1]) < 4) {
           json['devDependencies']['gulp'] = '^4.0.0';
 
           console.log('Gulp version set to ^4.0.0');
