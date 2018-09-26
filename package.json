@@ -1,0 +1,26 @@
+{
+  "name": "typescript-app",
+  "version": "0.1.0",
+  "description": "Create a basic TypeScript application (typescript + sass + gulp4 + tslint + browserify)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript",
+    "ts",
+    "gulp",
+    "tslint",
+    "sass",
+    "browserify"
+  ],
+  "author": "Arfeo.net",
+  "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "typescript-app": "index.js"
+  },
+  "dependencies": {
+    "npm-add-dependencies": "^0.1.0",
+    "npm-run": "^5.0.1"
+  }
+}
