@@ -1,9 +1,8 @@
 {
   "name": "typescript-app",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Create a basic TypeScript application (typescript + sass + gulp4 + tslint + browserify)",
   "scripts": {
-    "npm-add-dependencies": "npm-add-dependencies",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
