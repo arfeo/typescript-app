@@ -59,7 +59,7 @@ const addDependencies = () => {
         }
       }
     });
-  });
+  }).catch(console.error);
 };
 
 const runScript = (script, mute = false) => {

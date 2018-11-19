@@ -22,7 +22,7 @@ const copyAssets = () => {
         console.error
       );
     });
-  });
+  }).catch(console.error);
 };
 
 const createSources = () => {
@@ -37,7 +37,7 @@ const createSources = () => {
     )).then(writeToFile(
       `${sourceDir}/styles.scss`,
       `body { background-color: black; color: white; }`,
-    ));
+    )).catch(console.error);
 };
 
 const createDirectory = (dir) => {

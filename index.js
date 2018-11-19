@@ -12,4 +12,5 @@ projectInit()
   .then(addDependencies)
   .then(copyAssets)
   .then(createSources)
-  .then(() => console.log('Success.'));
+  .then(() => console.log('Success.'))
+  .catch(console.error);
