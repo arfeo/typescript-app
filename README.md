@@ -1,6 +1,6 @@
 # typescript-app
 
-This script automates the creation of a basic TypeScript application (typescript + sass + gulp4 + tslint + browserify).
+This script automates the creation of a basic TypeScript application (typescript + sass + gulp + tslint + browserify).
 
 ### Installation
 

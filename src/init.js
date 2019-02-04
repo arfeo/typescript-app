@@ -15,7 +15,6 @@ const addDependencies = () => {
     'browserify',
     'del',
     'gulp',
-    'gulp-babel-minify',
     'gulp-concat',
     'gulp-sass',
     'gulp-tslint',

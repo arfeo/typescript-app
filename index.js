@@ -5,7 +5,7 @@ const { copyAssets, createSources } = require('./src/files');
 
 console.log(
   'This script automates the creation of a basic TypeScript application\n' +
-  '(typescript + sass + gulp4 + tslint + browserify)\n'
+  '(typescript + sass + gulp + tslint + browserify)\n'
 );
 
 projectInit()

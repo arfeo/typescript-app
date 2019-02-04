@@ -1,7 +1,7 @@
 {
   "name": "typescript-app",
-  "version": "0.1.5",
-  "description": "Create a basic TypeScript application (typescript + sass + gulp4 + tslint + browserify)",
+  "version": "0.1.6",
+  "description": "Create a basic TypeScript application (typescript + sass + gulp + tslint + browserify)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
