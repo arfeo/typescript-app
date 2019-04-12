@@ -28,7 +28,7 @@
     "typescript-app": "index.js"
   },
   "dependencies": {
-    "npm-add-dependencies": "^0.1.0",
+    "npm-add-dependencies": "^0.1.4",
     "npm-run": "^5.0.1"
   }
 }
