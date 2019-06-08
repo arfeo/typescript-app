@@ -10,7 +10,9 @@ const copyAssets = () => {
     fs.copyFileSync(
       `${__dirname}/../assets/${file}`,
       file === 'gitignore' ? `.${file}` : file,
-      console.error,
+      (err) => {
+        console.error(err);
+      },
     );
   });
 
@@ -19,7 +21,9 @@ const copyAssets = () => {
       fs.copyFileSync(
         `${__dirname}/../assets/${file}`,
         `${PUBLIC_DIR_NAME}/${file}`,
-        console.error
+        (err) => {
+          console.error(err)
+        }
       );
     });
   }).catch(console.error);
@@ -31,13 +35,17 @@ const createSources = () => {
   console.log('Step 4. Creating source files...');
 
   return createDirectory(sourceDir)
-    .then(writeToFile(
-      `${sourceDir}/index.ts`,
-      `window.onload = () => { document.getElementById('root').innerHTML = 'TypeScript app. It works!'; }`,
-    )).then(writeToFile(
-      `${sourceDir}/styles.scss`,
-      `body { background-color: black; color: white; }`,
-    )).catch(console.error);
+    .then(() => {
+      writeToFile(
+        `${sourceDir}/index.ts`,
+        `window.onload = () => { document.getElementById('root').innerHTML = 'TypeScript app. It works!'; };`,
+      );
+    }).then(() => {
+      writeToFile(
+        `${sourceDir}/styles.scss`,
+        `body { background-color: black; color: white; }`,
+      );
+    }).catch(console.error);
 };
 
 const createDirectory = (dir) => {
