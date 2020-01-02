@@ -31,7 +31,7 @@ const addDependencies = () => {
   console.log('Step 2. Adding dependencies...');
 
   return runScript(
-    `${__dirname}/../node_modules/.bin/npm-add-dependencies --dev  ${dependencies.join(' ')}`,
+    `${__dirname}/../node_modules/.bin/add-dependencies --dev  ${dependencies.join(' ')}`,
     true
   ).then(() => {
     return readFromFile('package.json').then(async (data) => {
