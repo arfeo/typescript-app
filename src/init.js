@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 const npmRun = require('npm-run');
 const { readFromFile, writeToFile } = require('./files');
 
@@ -38,7 +37,7 @@ const addDependencies = () => {
       let json = {};
 
       try {
-        json = JSON.parse(data);
+        json = JSON.parse(data.toString());
       } catch (e) {
         console.error('Could not parse package.json. Stop.');
         process.exit(1);

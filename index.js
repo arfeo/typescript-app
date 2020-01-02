@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 const { projectInit, addDependencies } = require('./src/init.js');
 const { copyAssets, createSources } = require('./src/files');
 
