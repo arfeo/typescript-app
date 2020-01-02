@@ -8,7 +8,7 @@ const copyAssets = () => {
   const ASSETS_DIR_PATH = `${__dirname}/../assets`;
 
   // Hidden files
-  ['eslintc', 'gitignore'].map((file) => {
+  ['eslintrc', 'gitignore'].map((file) => {
     fs.copyFileSync(`${ASSETS_DIR_PATH}/${file}`, `.${file}`, (err) => {
       console.error(err);
     });
