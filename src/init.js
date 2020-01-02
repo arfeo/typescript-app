@@ -11,16 +11,18 @@ const projectInit = () => {
 
 const addDependencies = () => {
   const dependencies = [
+    '@typescript-eslint/eslint-plugin',
+    '@typescript-eslint/parser',
     'browser-sync',
     'browserify',
     'del',
     'gulp',
     'gulp-concat',
+    'gulp-eslint',
     'gulp-sass',
-    'gulp-tslint',
+    'gulp-uglify',
     'gulp-watch',
     'tsify',
-    'tslint',
     'typescript',
     'vinyl-buffer',
     'vinyl-source-stream',
@@ -33,7 +35,7 @@ const addDependencies = () => {
     true
   ).then(() => {
     return readFromFile('package.json').then(async (data) => {
-      let json;
+      let json = {};
 
       try {
         json = JSON.parse(data);
@@ -42,21 +44,14 @@ const addDependencies = () => {
         process.exit(1);
       }
 
-      // Gulp version hack
-      const devDependencies = json['devDependencies'];
-      const gulpVersion = devDependencies ? devDependencies['gulp'] : null;
+      // Update `package.json` file
+      json.scripts = {
+        start: 'gulp',
+        build: 'gulp build',
+        test: 'echo "Error: no test specified" && exit 1',
+      };
 
-      if (gulpVersion) {
-        const parsed = gulpVersion.match(/(\d+).?(\d?).?(\d?)/);
-
-        if (parsed && parsed[1] && parseInt(parsed[1]) < 4) {
-          json['devDependencies']['gulp'] = '^4.0.0';
-
-          console.log('Gulp version set to ^4.0.0');
-
-          await writeToFile('package.json', JSON.stringify(json, null, 2));
-        }
-      }
+      await writeToFile('package.json', JSON.stringify(json, null, 2));
     });
   }).catch(console.error);
 };

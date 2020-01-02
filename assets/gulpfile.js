@@ -4,9 +4,10 @@ const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 const browserify = require('browserify');
 const tsify = require('tsify');
-const tslint = require('gulp-tslint');
+const eslint = require('gulp-eslint');
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync').create();
 
 function clean() {
@@ -60,8 +61,9 @@ function scss() {
 
 function linter() {
   return gulp.src('./src/**/*.ts')
-    .pipe(tslint())
-    .pipe(tslint.report());
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 }
 
 function ts() {
@@ -72,6 +74,7 @@ function ts() {
     })
     .pipe(source('app.js'))
     .pipe(buffer())
+    .pipe(uglify())
     .pipe(gulp.dest('./dist'));
 }
 

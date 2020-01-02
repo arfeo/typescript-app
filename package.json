@@ -1,10 +1,7 @@
 {
   "name": "typescript-app",
-  "version": "0.1.7",
-  "description": "Create a basic TypeScript application (typescript + sass + gulp + tslint + browserify)",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "0.2.0",
+  "description": "Create a basic TypeScript application (typescript + sass + gulp + eslint + browserify)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arfeo/typescript-app.git"
@@ -17,7 +14,7 @@
     "typescript",
     "ts",
     "gulp",
-    "tslint",
+    "eslint",
     "sass",
     "browserify"
   ],
@@ -28,7 +25,7 @@
     "typescript-app": "index.js"
   },
   "dependencies": {
-    "npm-add-dependencies": "^0.1.4",
+    "add-dependencies": "^1.0.0",
     "npm-run": "^5.0.1"
   }
 }

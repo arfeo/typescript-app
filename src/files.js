@@ -6,25 +6,22 @@ const PUBLIC_DIR_NAME = 'public';
 const copyAssets = () => {
   console.log('Step 3. Copying assets...');
 
-  ['gitignore', 'gulpfile.js', 'tsconfig.json', 'tslint.json'].map((file) => {
-    fs.copyFileSync(
-      `${__dirname}/../assets/${file}`,
-      file === 'gitignore' ? `.${file}` : file,
-      (err) => {
-        console.error(err);
-      },
-    );
+  const assetsDirPath = `${__dirname}/../assets/${file}`;
+
+  // Hidden files
+  ['eslintc', 'gitignore'].map((file) => {
+    fs.copyFileSync(assetsDirPath, `.${file}`, console.error);
   });
 
+  // Regular files
+  ['gulpfile.js', 'tsconfig.json'].map((file) => {
+    fs.copyFileSync(assetsDirPath, file, console.error);
+  });
+
+  // Files in the `public` directory
   createDirectory(PUBLIC_DIR_NAME).then(() => {
     ['index.html'].map((file) => {
-      fs.copyFileSync(
-        `${__dirname}/../assets/${file}`,
-        `${PUBLIC_DIR_NAME}/${file}`,
-        (err) => {
-          console.error(err)
-        }
-      );
+      fs.copyFileSync(assetsDirPath, `${PUBLIC_DIR_NAME}/${file}`, console.error);
     });
   }).catch(console.error);
 };
