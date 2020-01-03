@@ -1,7 +1,7 @@
 {
   "name": "typescript-app",
-  "version": "0.2.3",
-  "description": "Create a basic TypeScript application (typescript + sass + gulp + eslint + browserify)",
+  "version": "0.3.0",
+  "description": "Create a basic TypeScript application (typescript + sass + gulp + eslint + jest + browserify)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arfeo/typescript-app.git"
@@ -15,6 +15,8 @@
     "ts",
     "gulp",
     "eslint",
+    "jest",
+    "ts-jest",
     "sass",
     "browserify"
   ],

@@ -1,6 +1,6 @@
 # typescript-app
 
-This script automates the creation of a basic TypeScript application (typescript + sass + gulp + eslint + browserify).
+This script automates the creation of a basic TypeScript application (typescript + sass + gulp + eslint + jest + browserify).
 
 ### Installation
 
@@ -47,6 +47,18 @@ or
 ```sh
 $ yarn start
 ```
+
+#### Run tests
+
+````sh
+$ npm run test
+````
+
+or
+
+````sh
+$ yarn test
+````
 
 #### Build application
 

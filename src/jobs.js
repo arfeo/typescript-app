@@ -1,6 +1,6 @@
-#!/usr/bin/env node
-const npmRun = require('npm-run');
-const { readFromFile, writeToFile } = require('./files');
+const fs = require('fs');
+const { readFromFile, writeToFile, createDirectory, copyFiles } = require('./files');
+const { runScript } = require('./utils');
 
 const projectInit = () => {
   console.log('Step 1. Initializing the package...');
@@ -10,6 +10,7 @@ const projectInit = () => {
 
 const addDependencies = () => {
   const dependencies = [
+    '@types/jest',
     '@typescript-eslint/eslint-plugin',
     '@typescript-eslint/parser',
     'browser-sync',
@@ -21,6 +22,8 @@ const addDependencies = () => {
     'gulp-sass',
     'gulp-uglify',
     'gulp-watch',
+    'jest',
+    'ts-jest',
     'tsify',
     'typescript',
     'vinyl-buffer',
@@ -44,10 +47,12 @@ const addDependencies = () => {
       }
 
       // Update `package.json` file
+      json.name = json.name.toLowerCase();
+
       json.scripts = {
         start: 'gulp',
-        build: 'gulp build',
-        test: 'echo "Error: no test specified" && exit 1',
+        build: 'jest && gulp build',
+        test: 'jest',
       };
 
       await writeToFile('package.json', JSON.stringify(json, null, 2));
@@ -55,19 +60,33 @@ const addDependencies = () => {
   }).catch(console.error);
 };
 
-const runScript = (script, mute = false) => {
-  return new Promise((resolve) => {
-    const stdout = npmRun.execSync(script);
+const copyAssets = () => {
+  console.log('Step 3. Copying assets...');
 
-    if (!mute) {
-      console.log(stdout.toString());
-    }
+  const assetsPath = `${__dirname}/../assets`;
+  const publicDir = 'public';
+  const sourceDir = 'src';
+  const testsDir = '__tests__';
 
-    resolve();
+  // Root files
+  ['.eslintrc', '.gitignore', 'gulpfile.js', 'jest.config.js', 'tsconfig.json'].map((file) => {
+    fs.copyFileSync(`${assetsPath}/${file}`, file, (err) => {
+      console.error(err);
+    });
   });
+
+  // Subdirectories
+  return createDirectory(publicDir).then(() => {
+    copyFiles(['index.html'], `${assetsPath}/${publicDir}`, `${publicDir}`);
+  }).then(() => createDirectory(sourceDir).then(() => {
+    copyFiles(['index.ts', 'styles.scss'], `${assetsPath}/${sourceDir}`, `${sourceDir}`);
+  })).then(() => createDirectory(testsDir).then(() => {
+    copyFiles(['example.test.ts'], `${assetsPath}/${testsDir}`, `${testsDir}`);
+  })).catch(console.error);
 };
 
 module.exports = {
   projectInit,
   addDependencies,
+  copyAssets,
 };
