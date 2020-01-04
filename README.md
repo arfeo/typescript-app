@@ -1,6 +1,6 @@
 # typescript-app
 
-This script automates the creation of a basic TypeScript application (typescript + sass + gulp + eslint + jest + browserify).
+Start coding in TypeScript in just 1 (one) minute! This package magically sets up a ready-to-use TypeScript application (typescript + eslint + sass + jest + gulp + browsersync).
 
 ### Installation
 

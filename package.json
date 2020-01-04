@@ -1,7 +1,7 @@
 {
   "name": "typescript-app",
   "version": "0.3.2",
-  "description": "Create a basic TypeScript application (typescript + sass + gulp + eslint + jest + browserify)",
+  "description": "Set up a ready-to-use TypeScript application (typescript + eslint + sass + jest + gulp + browsersync)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arfeo/typescript-app.git"
@@ -18,7 +18,8 @@
     "jest",
     "ts-jest",
     "sass",
-    "browserify"
+    "browserify",
+    "browsersync"
   ],
   "author": "Arfeo.net",
   "license": "MIT",

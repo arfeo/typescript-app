@@ -1,10 +1,7 @@
 #!/usr/bin/env node
 const { projectInit, addDependencies, copyAssets } = require('./src/jobs');
 
-console.log(
-  'This script automates the creation of a basic TypeScript application\n' +
-  '(typescript + sass + gulp + eslint + jest + browserify)\n'
-);
+console.log('Set up a ready-to-use TypeScript application (typescript + eslint + sass + jest + gulp + browsersync)\n');
 
 projectInit()
   .then(addDependencies)
