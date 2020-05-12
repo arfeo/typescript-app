@@ -38,11 +38,9 @@ const copyFiles = (files, sourceDir, targetDir) => {
   if (!Array.isArray(files)) {
     return;
   }
-  
+
   files.map((file) => {
-    fs.copyFileSync(`${sourceDir}/${file}`, `${targetDir}/${file}`, (err) => {
-      console.error(err);
-    });
+    fs.copyFileSync(`${sourceDir}/${file}`, `${targetDir}/${file}`);
   });
 };
 
