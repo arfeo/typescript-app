@@ -71,9 +71,7 @@ const copyAssets = () => {
   // Root files
   ['.eslintrc', 'gitignore', 'gulpfile.js', 'jest.config.js', 'tsconfig.json'].map((file) => {
     // npm cuts `.gitignore` files during installation, so we use the dirty hack for `.gitignore` here
-    fs.copyFileSync(`${assetsPath}/${file}`, (file === 'gitignore' ? `.${file}` : file), (err) => {
-      console.error(err);
-    });
+    fs.copyFileSync(`${assetsPath}/${file}`, (file === 'gitignore' ? `.${file}` : file));
   });
 
   // Subdirectories
